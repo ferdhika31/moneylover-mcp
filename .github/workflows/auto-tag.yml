@@ -1,0 +1,43 @@
+name: Auto Tag on Version Bump
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "package.json"
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Read version from package.json
+        id: ver
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Fetch tags
+        run: git fetch --tags --force
+
+      - name: Create and push tag if missing
+        env:
+          VERSION: ${{ steps.ver.outputs.version }}
+        run: |
+          TAG="v${VERSION}"
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists. Skipping."
+            exit 0
+          fi
+          echo "Creating tag $TAG"
+          git tag -a "$TAG" -m "$TAG"
+          git push origin "$TAG"

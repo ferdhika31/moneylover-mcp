@@ -1,0 +1,37 @@
+{
+  "name": "@ferdhika31/moneylover-mcp",
+  "version": "0.0.1",
+  "description": "MCP server wrapping the Money Lover REST API",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferdhika31/moneylover-mcp.git"
+  },
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "moneylover-mcp": "./src/cli.js"
+  },
+  "scripts": {
+    "start": "node ./src/server.js",
+    "test": "vitest run",
+    "release": "semantic-release"
+  },
+  "author": "Ferdhika Yudira",
+  "license": "ISC",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/github": "^12.0.0",
+    "@semantic-release/npm": "^13.1.1",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "semantic-release": "^25.0.1",
+    "vitest": "^1.6.0"
+  }
+}
