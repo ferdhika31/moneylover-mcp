@@ -2,6 +2,10 @@
 
 Node.js implementation of a Model Context Protocol (MCP) server that wraps the unofficial Money Lover REST API. The server exposes authentication and wallet management capabilities as MCP tools, enabling AI assistants or compatible MCP clients to login, inspect wallets, query transactions, and create new transactions.
 
+<a href="https://glama.ai/mcp/servers/@ferdhika31/moneylover-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@ferdhika31/moneylover-mcp/badge" alt="Money Lover Server MCP server" />
+</a>
+
 ## Features
 
 - Login tool returns Money Lover JWT tokens via the public OAuth flow.
