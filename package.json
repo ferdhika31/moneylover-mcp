@@ -1,6 +1,6 @@
 {
   "name": "@ferdhika31/moneylover-mcp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "MCP server wrapping the Money Lover REST API",
   "repository": {
     "type": "git",
