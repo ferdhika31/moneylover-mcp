@@ -452,7 +452,7 @@ const registerMoneyloverTools = server => {
 export const createMoneyloverServer = () => {
   const server = new McpServer({
     name: 'moneylover-mcp-server',
-    version: '0.0.2'
+    version: '0.0.3'
   });
   registerMoneyloverTools(server);
   return server;
